@@ -4,17 +4,39 @@ createApp({
   data() {
     return {
         titol: 'Todo List',
-        todoList: []
+        apiUrl: './server.php',
+        todoList: [],
+        newTodoText: ''
     }
   },
   methods:{
-   
+    getTodo(){
+        axios.get(this.apiUrl).then((response)=>{
+            // console.log(response);
+            this.todoList = response.data;
+        });
+    },
+    addTodo(){
+        const data = {
+            //nome : valore della chiave
+            newTodoText: this.newTodoText,
+        }
+        //headers per ingannare il server e farli credere che è un form
+        axios.post(
+            this.apiUrl, 
+            data,
+            {headrs: {'Content-Type': 'multipart/form-data'}}
+            ).then((response)=>{
+                console.log(response.data);
+
+                this.getTodo();
+
+                this.newTodoText = '';
+
+            });
+    }
   },
-  created(){
-    //chiamata al server per accedere ai dati con axios
-    axios.get('server.php').then((res)=>{
-        console.log(res.data);
-        this.todoList = res.data;
-    })
+  mounted(){
+    this.getTodo();
   }
 }).mount('#app')

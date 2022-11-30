@@ -6,7 +6,9 @@
     --brown: #A37A74;
     --white: #eeebeb;
 }
-*{
+*,
+::after,
+::before{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -39,4 +41,7 @@ h1{
     margin-bottom: 1.5rem;
     font-size: 3rem;
     color: var(--cyan);
+}
+.done{
+    color: red;
 }
