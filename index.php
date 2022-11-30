@@ -19,10 +19,19 @@
 </head>
 
 <body>
-    <div class="container">
-        <h1>Todo List</h1>
-
-        <div class="wrapper">
+    <div id="app">
+        <div class="container">
+            <h1>{{titol}}</h1>
+            <!-- {{todoList.length}} -->
+            <div class="wrapper">
+                <ul>
+                    <!-- <li v-for="task in todoList">{{task}}</li> -->
+                </ul>
+                <div>
+                    <input type="text">
+                    <button>Save</button>
+                </div>
+            </div>
         </div>
     </div>
     <!-- My JS -->
