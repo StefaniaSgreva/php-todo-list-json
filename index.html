@@ -22,15 +22,15 @@
     <div id="app">
         <div class="container">
             <h1>{{titol}}</h1>
-            <!-- {{todoList.length}} -->
             <div class="wrapper">
-                <ul>
-                    <li v-for="(todo,index) in  todoList"
-                    :class="todo.done ? 'done' : ''">{{todo.text}}</li>
+                <ul id="todo-list">
+                    <li v-for="(todo,index) in  todoList" class="todo"
+                    :class="todo.done ? 'done' : '' ">{{ todo.text }}
+                    </li>
                 </ul>
-                <div>
-                    <input type="text" placeholder="new task" v-model="newTodoText" name="newTodoText">
-                    <button @click="addTodo">Add</button>
+                <div class="add-todo">
+                    <input type="text" placeholder="new task" v-model.trim="newTodoText" name="newTodoText">
+                    <button @click="addTodo">+</button>
                 </div>
             </div>
         </div>
