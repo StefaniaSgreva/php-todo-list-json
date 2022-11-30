@@ -28,10 +28,10 @@
                     :class="todo.done ? 'done' : '' ">{{ todo.text }}
                     </li>
                 </ul>
-                <div class="add-todo">
-                    <input type="text" placeholder="new task" v-model.trim="newTodoText" name="newTodoText">
-                    <button @click="addTodo">+</button>
-                </div>
+            </div>
+            <div class="add-todo">
+                <input type="text" placeholder="new task" v-model.trim="newTodoText" name="newTodoText">
+                <button @click="addTodo" class="btn-add">+</button>
             </div>
         </div>
     </div>
