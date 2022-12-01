@@ -59,14 +59,23 @@ li{
     padding: .15rem .45rem;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     border: 2px solid var(--brown);
     border-radius: 5px;
 }
-#todo-list .todo.done{
+.done{
     color: var(--violet);
     text-decoration: line-through;
     font-weight: 400;
+}
+.fa-square{
+    font-size: .85rem;
+    margin-right: .25rem;
+
+}
+.squaredone{
+    background-color: var(--violet);
+    opacity: .5;
 }
 .fa-trash-can{
     color: var(--orange);
@@ -86,6 +95,11 @@ input{
     font-family: inherit;
     font-size: 1.1rem;
     color: var(--blue);
+}
+input::placeholder{
+    color: var(--blue);
+    opacity: .5;
+    font-family: inherit;
 }
 .btn-add{
     height: 40px;
