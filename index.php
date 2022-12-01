@@ -24,15 +24,18 @@
             <h1>{{titol}}</h1>
             <div class="wrapper">
                 <ul id="todo-list">
-                    <li v-for="(todo,index) in  todoList" class="todo"
-                    :class="todo.done ? 'done' : '' " @click="toggleTodo(index)">
-                    <span class="todo"><i class="fa-regular fa-square" :class="{squaredone: todo.done}"></i>{{ todo.text }}</span>
-                    <span @click.stop="deleteTodo(index)" class="trash-can-span"><i class="fa-solid fa-trash-can"></i></span>
+                    <li v-for="(todo,index) in  todoList" class="todo" :class="todo.done ? 'done' : '' "
+                        @click="toggleTodo(index)">
+                        <span class="todo"><i class="fa-regular fa-square" :class="{squaredone: todo.done}"></i>{{
+                            todo.text }}</span>
+                        <span @click.stop="deleteTodo(index)" class="trash-can-span"><i
+                                class="fa-solid fa-trash-can"></i></span>
                     </li>
                 </ul>
             </div>
             <div class="add-todo">
-                <input type="text" placeholder="add new tasks" v-model.trim="newTodoText" name="newTodoText" @keyup.enter ="addTodo">
+                <input type="text" placeholder="add new tasks" v-model.trim="newTodoText" name="newTodoText"
+                    @keyup.enter="addTodo" required>
                 <button @click="addTodo" class="btn-add"><i class="fa-solid fa-plus"></i></button>
             </div>
         </div>
