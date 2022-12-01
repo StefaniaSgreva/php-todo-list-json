@@ -17,14 +17,14 @@ createApp({
         });
     },
     addTodo(){
-        const data = {
+        const todoFormData = {
             //nome della chiave : valore della chiave
             newTodoText: this.newTodoText,
         }
         
         axios.post(
             this.apiUrl, 
-            data,
+            todoFormData,
             //headers per ingannare il server e fargli credere che è un form
             {headers: {'Content-Type': 'multipart/form-data'}}
             ).then((response)=>{
@@ -37,6 +37,38 @@ createApp({
 
             });
     },
+    toggleTodo(index){
+      // console.log(index);
+
+      const todoFormData = {
+        toggleTodoIndex: index,
+      }
+
+      axios.post(
+        this.apiUrl, 
+        todoFormData,
+        //headers per ingannare il server e fargli credere che è un form
+        {headers: {'Content-Type': 'multipart/form-data'}}
+        ).then((response)=>{
+            // console.log(response.data);
+            this.getTodo(); //funzione che aggiorna i to do ricaricando la pagina
+        });
+    },
+    deleteTodo(index){
+      const todoFormData = {
+        deleteTodoIndex: index,
+      }
+
+      axios.post(
+        this.apiUrl, 
+        todoFormData,
+        //headers per ingannare il server e fargli credere che è un form
+        {headers: {'Content-Type': 'multipart/form-data'}}
+        ).then((response)=>{
+            // console.log(response.data);
+            this.getTodo(); //funzione che aggiorna i to do ricaricando la pagina
+        });
+    }
   },
   mounted(){
     this.getTodo();

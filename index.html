@@ -25,7 +25,8 @@
             <div class="wrapper">
                 <ul id="todo-list">
                     <li v-for="(todo,index) in  todoList" class="todo"
-                    :class="todo.done ? 'done' : '' ">{{ todo.text }}
+                    :class="todo.done ? 'done' : '' " @click="toggleTodo(index)">{{ todo.text }}
+                    <span @click.stop="deleteTodo(index)">x</span>
                     </li>
                 </ul>
             </div>
