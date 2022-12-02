@@ -53,12 +53,12 @@ if (isset($_POST['newTodoText']) && !empty($_POST['newTodoText'])) {
 
     array_splice($todo_list, $todoIndex, 1);
 
-    file_put_contents($file_url, json_encode($todo_list));
+    file_put_contents($file_url, json_encode($todo_list, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK));
 
 
 } else {
     //mostro la lista dei to do
     // echo 'il parametro post non è arrivato';
     header('Content-Type: application/json');
-    echo json_encode($todo_list);
+    echo json_encode($todo_list, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK);
 }
