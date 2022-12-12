@@ -34,7 +34,7 @@
                 </ul>
             </div>
             <div class="add-todo">
-                <input type="text" placeholder="add new tasks" v-model.trim="newTodoText" name="newTodoText"
+                <input type="text" placeholder="add new task" v-model.trim="newTodoText" name="newTodoText"
                     @keyup.enter="addTodo" required>
                 <button @click="addTodo" class="btn-add"><i class="fa-solid fa-plus"></i></button>
             </div>
